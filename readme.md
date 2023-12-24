@@ -15,3 +15,5 @@
 
 
 I chose to follow [this walkthough](https://www.youtube.com/watch?v=wttTTFVrQiw&list=WL&index=27) to get a core understanding of how to setup a golang project using temple (formatter) and htmx "# go-htmx" 
+
+TODO: incorporate htmx...

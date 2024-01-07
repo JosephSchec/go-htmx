@@ -28,6 +28,8 @@ func main() {
 	noteHandle := handler.NoteHandler{}
 	app.Use(withNote)
 	app.GET("/note", noteHandle.HandlNoteShow)
+	clickHandle := handler.ClickHandler{}
+	app.POST("/click", clickHandle.HandlClickShow)
 	app.Start(portString)
 }
 

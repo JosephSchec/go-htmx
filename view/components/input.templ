@@ -1,5 +1,9 @@
 package component
 
+
+import(  
+    button "github.com/josephschec/go-htmx/view/components/Button"   
+)
 type InputProps struct {
     Type string
     Name string
@@ -7,4 +11,5 @@ type InputProps struct {
 
 templ Input(props InputProps){
     <input type={props.Type} name={props.Name}/>
+     @button.Button() 
 }

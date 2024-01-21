@@ -1,15 +1,23 @@
 package component
 
-
-import(  
-    button "github.com/josephschec/go-htmx/view/components/Button"   
-)
 type InputProps struct {
-    Type string
-    Name string
+	Type string
+	Name string
 }
 
-templ Input(props InputProps){
-    <input type={props.Type} name={props.Name}/>
-     @button.Button() 
+templ Input(props InputProps) {
+	<form hx-post="/click" class="p-2">
+		<div class="border rounded border-indigo-500 p-2 w-1/2 flex justify-between">
+			<input
+				id="title"
+				name={ props.Name }
+				type={ props.Type }
+				class="w-full"
+				hx-trigger="change"
+			/>
+			<button type="submit" class="bg-red-200 rounded-lg p-2 w-full ml-2">
+				Add note
+			</button>
+		</div>
+	</form>
 }

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"log"
 
@@ -26,17 +25,17 @@ func main() {
 
 	app := echo.New()
 	noteHandle := handler.NoteHandler{}
-	app.Use(withNote)
-	app.GET("/note", noteHandle.HandlNoteShow)
+	// app.Use(withNote)
+	app.GET("/", noteHandle.HandlNoteShow)
 	clickHandle := handler.ClickHandler{}
 	app.POST("/click", clickHandle.HandlClickShow)
 	app.Start(portString)
 }
 
-func withNote(next echo.HandlerFunc) echo.HandlerFunc {
-	return func(c echo.Context) error {
-		ctx := context.WithValue(c.Request().Context(), "note", "hello world ctx")
-		c.SetRequest(c.Request().WithContext(ctx))
-		return next(c)
-	}
-}
+// func withNote(next echo.HandlerFunc) echo.HandlerFunc {
+// 	return func(c echo.Context) error {
+// 		ctx := context.WithValue(c.Request().Context(), "note", "hello world ctx")
+// 		c.SetRequest(c.Request().WithContext(ctx))
+// 		return next(c)
+// 	}
+// }

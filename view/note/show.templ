@@ -1,30 +1,29 @@
 package note
 
-import( 
-    "github.com/josephschec/go-htmx/view/layout"
-    "github.com/josephschec/go-htmx/model" 
-    components "github.com/josephschec/go-htmx/view/components"  
-    "log"
+import (
+	"github.com/josephschec/go-htmx/view/layout"
+	"github.com/josephschec/go-htmx/model"
+	components "github.com/josephschec/go-htmx/view/components"
 )
 
-func getCtxNote(ctx context.Context) string{
-    note,ok:=  ctx.Value("note").(string)
-    if !ok{
-        log.Fatal(ok)
-        return ""
-    }
-    return note
-}
+// func getCtxNote(ctx context.Context) string{
+//     note,ok:=  ctx.Value("note").(string)
+//     if !ok{
+//         log.Fatal(ok)
+//         return ""
+//     }
+//     return note
+// }
 
-
-templ Show(note model.Note){
-    @layout.Base(){
-     
-         <h1>Here is a note from props {note.Message} </h1>
-         <div class=""> Here is a note from context { getCtxNote(ctx) }</div>
-         @components.Input(components.InputProps{
+templ Show(note model.Note) {
+	@layout.Base() {
+		if len(note.Message) != 0 {
+			<h1>Here is a note: { note.Message } </h1>
+		}
+		//  <div class=""> Here is a note from context { getCtxNote(ctx) }</div>
+		@components.Input(components.InputProps{
             Type: "text",
             Name:"note",
-         }) 
-    }
+         })
+	}
 }

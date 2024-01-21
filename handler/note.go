@@ -10,7 +10,7 @@ type NoteHandler struct{}
 
 func (handler NoteHandler) HandlNoteShow(c echo.Context) error {
 	noteMessage := model.Note{
-		Message: "don't forget to upPdate",
+		Message: "",
 	}
 	return render(c, note.Show(noteMessage))
 }

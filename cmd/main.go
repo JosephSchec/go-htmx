@@ -24,11 +24,11 @@ func main() {
 	portString := fmt.Sprintf(":%s", port)
 
 	app := echo.New()
-	noteHandle := handler.NoteHandler{}
+
 	// app.Use(withNote)
-	app.GET("/", noteHandle.HandlNoteShow)
-	clickHandle := handler.ClickHandler{}
-	app.POST("/click", clickHandle.HandlClickShow)
+	app.GET("/", handler.HandlNoteShow)
+
+	app.POST("/click", handler.HandlClickShow)
 	app.Start(portString)
 }
 

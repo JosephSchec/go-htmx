@@ -6,13 +6,14 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type ClickHandler struct{}
-
-func (handler ClickHandler) HandlClickShow(c echo.Context) error {
+func HandlClickShow(c echo.Context) error {
 
 	value := c.FormValue("note")
 	noteVal := model.Note{
 		Message: value,
+	}
+	if len(value) == 0 {
+		return nil
 	}
 	return render(c, note.Show(noteVal))
 }

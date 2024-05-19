@@ -3,7 +3,7 @@ package note
 import (
 	"github.com/josephschec/go-htmx/view/layout"
 	"github.com/josephschec/go-htmx/model"
-	components "github.com/josephschec/go-htmx/view/components"
+	showNote "github.com/josephschec/go-htmx/view/components/Card"
 )
 
 // func getCtxNote(ctx context.Context) string{
@@ -18,12 +18,8 @@ import (
 templ Show(note model.Note) {
 	@layout.Base() {
 		if len(note.Message) != 0 {
-			<h1>Here is a note: { note.Message } </h1>
+			@showNote.Card(note)
 		}
 		//  <div class=""> Here is a note from context { getCtxNote(ctx) }</div>
-		@components.Input(components.InputProps{
-            Type: "text",
-            Name:"note",
-         })
 	}
 }

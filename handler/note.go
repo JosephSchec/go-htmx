@@ -6,9 +6,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type NoteHandler struct{}
-
-func (handler NoteHandler) HandlNoteShow(c echo.Context) error {
+func HandlNoteShow(c echo.Context) error {
 	noteMessage := model.Note{
 		Message: "",
 	}

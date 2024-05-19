@@ -1,11 +1,22 @@
 package layout
-templ Base(){
-    <html>
-    <head></head>
-    <body>
-        {children...}
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    </body>
-    </html>
+
+import (
+	addNoteForm "github.com/josephschec/go-htmx/view/components/addNoteForm"
+)
+
+templ Base() {
+	<html>
+		<head></head>
+		<body>
+			@addNoteForm.Input(addNoteForm.InputProps{
+            Type: "text",
+            Name:"note",
+         })
+			<main>
+				{ children... }
+			</main>
+			<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+			<script src="https://cdn.tailwindcss.com"></script>
+		</body>
+	</html>
 }

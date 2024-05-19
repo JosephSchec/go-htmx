@@ -2,3 +2,5 @@ main.exe
 .env
 tmp
 view/**/*.go
+node_modules
+vendor

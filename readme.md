@@ -17,6 +17,9 @@ to `cmd = "go build -o ./tmp/main.exe cmd/main.go"` in the `.air.toml`
 - First I had to install Templ (for tamplating htmx files) `go install github.com/a-h/templ/cmd/templ@latest`  [more info on temple here](https://github.com/a-h/templ) then run `go get github.com/a-h/templ` to use in my project
 - Air for hot reloading
 - Htmx/Tailwind scripts in base layout 
+- Setup up hot reloading for tailwind and [templ](https://templ.guide/commands-and-tools/hot-reload/#built-in)
+    - first run `make tailwind`
+    - then run `air` 
 
 
 #### Resources
@@ -24,3 +27,4 @@ to `cmd = "go build -o ./tmp/main.exe cmd/main.go"` in the `.air.toml`
 - https://htmx.org/docs/
 - https://go.dev/tour
  
+ up to https://go.dev/tour/methods/16
